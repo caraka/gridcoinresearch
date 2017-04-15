@@ -30,10 +30,11 @@ script:
   - cd ..
   - qmake "USE_QRCODE=1" "USE_UPNP=1" "NO_UPGRADE=1"
   - make -j4
+  - strip gridcoinresearch
   - mkdir -p appdir/usr/bin
   - mkdir -p appdir/usr/share/applications
   - mkdir -p appdir/usr/share/pixmaps
-  - cp gridcoinresearch appdir/usr/bin
+  - install -m 755 gridcoinresearch appdir/usr/bin/gridcoinresearch
   - cp share/pixmaps/grc-small.png appdir/gridcoinresearch.png
   - cp share/pixmaps/grc-small.png appdir/usr/share/pixmaps
   - cp gridcoinresearch.desktop appdir/
@@ -46,5 +47,5 @@ after_success:
   - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
   - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -appimage
   - find ./appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq
-  - curl --upload-file ./gridcoinresearch.AppImage https://transfer.sh/gridcoinresearch-git.$(git rev-parse --short HEAD)-x86_64.AppImage
+  - curl --upload-file ./Gri*.AppImage https://transfer.sh/gridcoinresearch-git.$(git rev-parse --short HEAD)-x86_64.AppImage
 
