@@ -30,7 +30,24 @@ script:
   - cd ..
   - qmake "USE_QRCODE=1" "USE_UPNP=1" "NO_UPGRADE=1"
   - make -j4
-  - make INSTALL_ROOT=appdir install ; find appdir/
+  - mkdir -p appdir/usr/bin
+  - mkdir -p appdir/usr/share/applications
+  - cp gridcoinresearch appdir/usr/bin
+  - cp share/pixmaps/grc-small.png appdir/gridcoinresearch.png
+  - cat > gridcoinresearch.desktop <<EOF
+  -[Desktop Entry]
+  -Name=Gridcoinresearch
+  -Comment=Gridcoin P2P Cryptocurrency
+  -Keywords=crypto,cryptocoin,bitcoin,altcoin
+  -Exec=gridcoinresearch %u
+  -Terminal=false
+  -Type=Application
+  -Icon=gridcoinresearch.png
+  -MimeType=x-scheme-handler/gridcoin;
+  -Categories=Office;Finance;
+  - EOF
+  - cp gridcoinresearch.desktop appdir/
+  - mv gridcoinresearch.desktop appdir/usr/share/applications/
 
 after_success:
   - wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage" 
