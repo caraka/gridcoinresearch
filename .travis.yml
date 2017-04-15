@@ -35,16 +35,16 @@ script:
   - cp gridcoinresearch appdir/usr/bin
   - cp share/pixmaps/grc-small.png appdir/gridcoinresearch.png
   - cat > gridcoinresearch.desktop <<EOF
-  -[Desktop Entry]
-  -Name=Gridcoinresearch
-  -Comment=Gridcoin P2P Cryptocurrency
-  -Keywords=crypto,cryptocoin,bitcoin,altcoin
-  -Exec=gridcoinresearch %u
-  -Terminal=false
-  -Type=Application
-  -Icon=gridcoinresearch.png
-  -MimeType=x-scheme-handler/gridcoin;
-  -Categories=Office;Finance;
+  - [Desktop Entry]
+  - Name=Gridcoinresearch
+  - Comment=Gridcoin P2P Cryptocurrency
+  - Keywords=crypto,cryptocoin,bitcoin,altcoin
+  - Exec=gridcoinresearch %u
+  - Terminal=false
+  - Type=Application
+  - Icon=gridcoinresearch.png
+  - MimeType=x-scheme-handler/gridcoin;
+  - Categories=Office;Finance;
   - EOF
   - cp gridcoinresearch.desktop appdir/
   - mv gridcoinresearch.desktop appdir/usr/share/applications/
