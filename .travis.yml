@@ -35,7 +35,7 @@ script:
   - mkdir -p appdir/usr/share/pixmaps
   - cp gridcoinresearch appdir/usr/bin
   - cp share/pixmaps/grc-small.png appdir/gridcoinresearch.png
-  - cp share/pixmaps/grc-small.png usr/share/pixmaps
+  - cp share/pixmaps/grc-small.png appdir/usr/share/pixmaps
   - cp gridcoinresearch.desktop appdir/
   - cp gridcoinresearch.desktop appdir/usr/share/applications/
 
