@@ -1,9 +1,6 @@
 [Desktop Entry]
-Name=gridcoinresearch
-Comment=Gridcoin P2P Cryptocurrency
-Keywords=crypto,cryptocoin,bitcoin,altcoin
-Exec=/usr/bin/gridcoinresearch %u
-Terminal=false
 Type=Application
-Icon=gridcoinresearch.png
+Name=gridcoinresearch
+Exec=gridcoinresearch
+Icon=gridcoinresearch
 Categories=Office;Finance;
