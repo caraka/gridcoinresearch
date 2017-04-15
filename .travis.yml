@@ -31,14 +31,10 @@ script:
   - qmake "USE_QRCODE=1" "USE_UPNP=1" "NO_UPGRADE=1"
   - make -j4
   - strip gridcoinresearch
-  - mkdir -p appdir/usr/bin
-  - mkdir -p appdir/usr/share/applications
-  - mkdir -p appdir/usr/share/pixmaps
-  - install -m 755 gridcoinresearch appdir/usr/bin/gridcoinresearch
-  - cp share/pixmaps/grc-small.png appdir/gridcoinresearch.png
-  - cp share/pixmaps/grc-small.png appdir/usr/share/pixmaps
-  - cp gridcoinresearch.desktop appdir/
-  - cp gridcoinresearch.desktop appdir/usr/share/applications/
+  - mkdir -p ./appdir/usr/share/applications
+  - cp ./share/pixmaps/grc-small.png ./appdir/gridcoinresearch.png
+  - cp ./gridcoinresearch.desktop ./appdir/usr/share/applications
+  - install -m 755 gridcoinresearch appdir/usr/bin/gridcoinresearch ; find appdir/
 
 after_success:
   - wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage" 
@@ -47,5 +43,5 @@ after_success:
   - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -bundle-non-qt-libs
   - ./linuxdeployqt*.AppImage ./appdir/usr/share/applications/*.desktop -appimage
   - find ./appdir -executable -type f -exec ldd {} \; | grep " => /usr" | cut -d " " -f 2-3 | sort | uniq
-  - curl --upload-file ./Gri*.AppImage https://transfer.sh/gridcoinresearch-git.$(git rev-parse --short HEAD)-x86_64.AppImage
+  - curl --upload-file ./gridcoinresearch.AppImage https://transfer.sh/gridcoinresearch-git.$(git rev-parse --short HEAD)-x86_64.AppImage
 
