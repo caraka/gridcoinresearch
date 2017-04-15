@@ -2,7 +2,7 @@
 Name=gridcoinresearch
 Comment=Gridcoin P2P Cryptocurrency
 Keywords=crypto,cryptocoin,bitcoin,altcoin
-Exec=gridcoinresearch %u
+Exec=/usr/bin/gridcoinresearch %u
 Terminal=false
 Type=Application
 Icon=gridcoinresearch.png
