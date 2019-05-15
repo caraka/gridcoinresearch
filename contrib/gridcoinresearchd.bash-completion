@@ -1,0 +1,21 @@
+#!/bin/bash
+# bash programmable completion for gridcoinresearchd(1) and gridcoinresearch(1)
+# Copyright (c) 2019 The Gridcoin developers
+# Distributed under the MIT software license, see the accompanying
+# file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
+_gridcoindresearchd()
+{
+	WORDS+="help"
+	for helpitem in $(gridcoinresearchd help | grep --  --- |cut -f1 -d' ')
+	do
+		#echo "Help: $helpitem"
+		for w in $(gridcoinresearchd help $helpitem | cut -f1 -d' ')
+		do
+			WORDS+=" $w"
+		done
+	done
+	COMPREPLY=($(compgen -W "$WORDS" "${COMP_WORDS[1]}"))
+}
+
+complete -F _gridcoindresearchd gridcoinresearchd gridcoinresearch
