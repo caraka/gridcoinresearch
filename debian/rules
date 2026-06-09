@@ -4,7 +4,8 @@ include /usr/share/dpkg/architecture.mk
 
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all optimize=-lto
 
-export DEB_BUILD_OPTIONS = parallel=3
+# Parallelism is left to the builder (dpkg-buildpackage -j / DEB_BUILD_OPTIONS /
+# OBS job limits) rather than hardcoded, so each build host uses its own capacity.
 
 # ARM SHA-NI intrinsics compiled for armhf (AArch32) produce incorrect SHA256
 # results when the build host is aarch64. The cmake detection check only tests
