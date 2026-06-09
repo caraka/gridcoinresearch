@@ -7,8 +7,6 @@ name: OBS mainnet
 on:
   workflow_dispatch: {}
   push:
-    branches:
-      - ci/obs          # TEMPORARY bring-up test trigger — REMOVE after first green run
     tags:
       - "*.*.*.0"
       - "!*-testnet"
